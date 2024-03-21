@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Exercise</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meditation Exercise</h1>
+        <div class="exercise">
+            <img src="C:\Users\REVATHY\Desktop\GISTATHON\meditation\01.jpg" alt="Meditation Image">
+            <p>Close your eyes and focus on your breath. Inhale deeply through your nose, hold for a moment, then exhale slowly through your mouth. Repeat this process and let go of any tension in your body.</p>
+        </div>
+        <button class="startButton">Start Timer</button>
+        <div class="timer-display"></div>
+    </div>
+
+    <div class="container">
+        <div class="exercise">
+            <img src="C:\Users\REVATHY\Desktop\GISTATHON\meditation\02.jpg" alt="Meditation Image">
+            <p>Close your eyes and focus on your breath. Inhale deeply through your nose, hold for a moment, then exhale slowly through your mouth. Repeat this process and let go of any tension in your body.</p>
+        </div>
+        <button class="startButton">Start Timer</button>
+        <div class="timer-display"></div>
+    </div>
+
+    <div class="container">
+        <div class="exercise">
+            <img src="C:\Users\REVATHY\Desktop\GISTATHON\meditation\03.jpg" alt="Meditation Image">
+            <p>Close your eyes and focus on your breath. Inhale deeply through your nose, hold for a moment, then exhale slowly through your mouth. Repeat this process and let go of any tension in your body.</p>
+        </div>
+        <button class="startButton">Start Timer</button>
+        <div class="timer-display"></div>
+    </div>
+    <div class="container">
+        <div class="exercise">
+            <img src="C:\Users\REVATHY\Desktop\GISTATHON\meditation\04.jpg" alt="Meditation Image">
+            <p>Close your eyes and focus on your breath. Inhale deeply through your nose, hold for a moment, then exhale slowly through your mouth. Repeat this process and let go of any tension in your body.</p>
+        </div>
+        <button class="startButton">Start Timer</button>
+        <div class="timer-display"></div>
+    </div>
+    <div class="container">
+        <div class="exercise">
+            <img src="C:\Users\REVATHY\Desktop\GISTATHON\meditation\05.jpg" alt="Meditation Image">
+            <p>Close your eyes and focus on your breath. Inhale deeply through your nose, hold for a moment, then exhale slowly through your mouth. Repeat this process and let go of any tension in your body.</p>
+        </div>
+        <button class="startButton">Start Timer</button>
+        <div class="timer-display"></div>
+    </div>
+
+
+
+
+    <script>
+        var startButtons = document.querySelectorAll('.startButton');
+        var timerDisplays = document.querySelectorAll('.timer-display');
+        
+        startButtons.forEach(function(button, index) {
+            button.addEventListener('click', function() {
+                startTimer(index);
+            });
+        });
+        
+        function startTimer(index) {
+            var timerDisplay = timerDisplays[index];
+            var startButton = startButtons[index];
+            
+            startButton.disabled = true;
+            var totalTime = 60; // 60 seconds = 1 minute
+            var timeLeft = totalTime;
+        
+            var timerInterval = setInterval(function() {
+                timeLeft--;
+                timerDisplay.textContent = 'Time left: ' + timeLeft + ' seconds';
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timerDisplay.textContent = 'Time up!';
+                    startButton.disabled = false;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
